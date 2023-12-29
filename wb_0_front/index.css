@@ -1,0 +1,35 @@
+body { white-space: pre; font-family: monospace; }
+
+body {
+    margin: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #8d43d3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
