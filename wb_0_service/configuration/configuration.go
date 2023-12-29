@@ -23,5 +23,5 @@ type Config struct {
 	NatsUrl string `env:"NATS_URL" envDefault:"nats://127.0.0.1:4222"`
 
 	// Other
-	Environment string `env:ENVIRONMENT envDefault:"dev"`
+	Environment string `env:"ENVIRONMENT" envDefault:"dev"`
 }
