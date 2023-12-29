@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"encoding/json"
+	"github.com/andrey-tsyn/wb_0/app/models"
+	"github.com/andrey-tsyn/wb_0/app/services"
 	"github.com/go-playground/validator/v10"
 	"io"
 	"net/http"
-	"wb_0_service/app/models"
-	"wb_0_service/app/services"
 )
 
 func AddOrder(orderService *services.OrderStorageService) http.HandlerFunc {

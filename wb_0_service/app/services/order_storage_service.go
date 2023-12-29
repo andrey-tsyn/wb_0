@@ -2,9 +2,9 @@ package services
 
 import (
 	"encoding/json"
+	"github.com/andrey-tsyn/wb_0/app/models"
 	"github.com/jmoiron/sqlx"
 	"sync"
-	"wb_0_service/app/models"
 )
 
 type OrderStorageService struct {

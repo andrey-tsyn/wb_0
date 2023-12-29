@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/andrey-tsyn/wb_0/app"
+	"github.com/andrey-tsyn/wb_0/app/database"
+	"github.com/andrey-tsyn/wb_0/configuration"
 	"github.com/caarlos0/env/v10"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 	"os"
-	"wb_0_service/app"
-	"wb_0_service/app/database"
-	"wb_0_service/configuration"
 )
 
 func main() {

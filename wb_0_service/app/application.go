@@ -3,17 +3,17 @@ package app
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/andrey-tsyn/wb_0/app/handlers"
+	"github.com/andrey-tsyn/wb_0/app/models"
+	"github.com/andrey-tsyn/wb_0/app/services"
+	"github.com/andrey-tsyn/wb_0/app/subscriptions"
+	"github.com/andrey-tsyn/wb_0/configuration"
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
 	"github.com/nats-io/nats.go"
 	log "github.com/sirupsen/logrus"
 	"net/http"
-	"wb_0_service/app/handlers"
-	"wb_0_service/app/models"
-	"wb_0_service/app/services"
-	"wb_0_service/app/subscriptions"
-	"wb_0_service/configuration"
 )
 
 var orderService *services.OrderStorageService = nil

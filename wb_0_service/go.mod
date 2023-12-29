@@ -1,4 +1,4 @@
-module wb_0_service
+module github.com/andrey-tsyn/wb_0
 
 go 1.21
 
