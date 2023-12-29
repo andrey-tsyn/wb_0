@@ -25,7 +25,7 @@ func main() {
 
 	db, err := database.ConnectToDb(
 		"postgres",
-		fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", cfg.DbIp, cfg.DbPort, cfg.DbUser, cfg.DbPassword, cfg.DbName),
+		fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", cfg.DbHost, cfg.DbPort, cfg.DbUser, cfg.DbPassword, cfg.DbName),
 	)
 	if err != nil {
 		log.Fatal(err)
