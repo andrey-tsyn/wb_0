@@ -1,0 +1,39 @@
+FROM golang:alpine
+LABEL authors="andre"
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+
+RUN go mod download
+
+COPY *.go ./
+COPY configuration ./configuration
+COPY app ./app
+
+RUN ls -R .
+
+RUN CGO_ENABLED=0 GOOS=linux go build -o /server
+
+EXPOSE 8080
+
+ARG DB_HOST=host.docker.internal
+ARG DB_PORT=5432
+ARG DB_NAME
+ARG DB_USER=postgres
+ARG DB_PASSWORD=postgres
+ARG LOG_LEVEL
+ARG ENVIRONMENT
+ARG NATS_URL=nats://127.0.0.1:4222
+
+ENV DB_HOST=$DB_HOST
+ENV DB_PORT=$DB_PORT
+ENV DB_NAME=$DB_NAME
+ENV DB_USER=$DB_USER
+ENV DB_PASSWORD=$DB_PASSWORD
+ENV LOG_LEVEL=$LOG_LEVEL
+ENV ENVIRONMENT=$ENVIRONMENT
+ENV NATS_URL=$NATS_URL
+
+CMD ["/server"]
