@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/andrey-tsyn/wb_0/app/handlers"
+	"github.com/andrey-tsyn/wb_0/app/middlewares"
 	"github.com/andrey-tsyn/wb_0/app/models"
 	"github.com/andrey-tsyn/wb_0/app/services"
 	"github.com/andrey-tsyn/wb_0/app/subscriptions"
@@ -39,6 +40,8 @@ func Start(config configuration.Config, db *sqlx.DB) {
 
 	// Server
 	router := mux.NewRouter()
+
+	router.Use(middlewares.AddHeadersMiddleware())
 
 	router.HandleFunc("/getOrder", handlers.GetOrderById(orderService)).Methods(http.MethodGet)
 	router.HandleFunc("/addOrder", handlers.AddOrder(orderService)).Methods(http.MethodPost)

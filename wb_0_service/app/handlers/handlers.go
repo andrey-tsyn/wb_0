@@ -13,7 +13,6 @@ func AddOrder(orderService *services.OrderStorageService) http.HandlerFunc {
 	validation := validator.New()
 
 	return func(w http.ResponseWriter, r *http.Request) {
-		setDefaultHeaders(w)
 		body, err := io.ReadAll(r.Body)
 
 		if err != nil {
@@ -49,7 +48,6 @@ func AddOrder(orderService *services.OrderStorageService) http.HandlerFunc {
 
 func GetOrderById(orderService *services.OrderStorageService) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		setDefaultHeaders(w)
 		id := r.URL.Query().Get("id")
 		if len(id) == 0 {
 			badRequest(w, "Query param 'id' must be set.")
@@ -77,8 +75,4 @@ func GetOrderById(orderService *services.OrderStorageService) http.HandlerFunc {
 func badRequest(w http.ResponseWriter, msg string) {
 	w.WriteHeader(http.StatusBadRequest)
 	_, _ = w.Write([]byte(msg))
-}
-
-func setDefaultHeaders(w http.ResponseWriter) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 }
