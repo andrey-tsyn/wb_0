@@ -9,10 +9,9 @@ type Config struct {
 	DbPassword string `env:"DB_PASSWORD"`
 
 	// Server
-	Port    string `env:"PORT" envDefault:"8080"`
-	UseHttp bool
+	Port string `env:"PORT" envDefault:"8080"`
 
-	// Cache configuration fields
+	// Cache configuration
 	OrderCacheCapacity int
 
 	// Logging
